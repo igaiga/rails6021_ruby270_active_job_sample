@@ -11,6 +11,10 @@ module Rails6021Ruby270ActiveJobSample
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    # zconfig.active_job.queue_adapter = :async # default
+    # config.active_job.queue_adapter = :inline
+    # Rails.application.config.active_job.queue_adapter = :inline
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
