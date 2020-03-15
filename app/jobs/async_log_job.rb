@@ -1,5 +1,5 @@
 class AsyncLogJob < ApplicationJob
-  queue_as :default
+  queue_as :async_log
 
   def perform(message: "hello") # 引数を定義できる
     # sleep 5
