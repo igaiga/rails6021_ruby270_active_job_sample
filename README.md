@@ -1,24 +1,26 @@
-# README
+# 起動
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sidekiqを使う設定になっているので、redisをセットアップして起動します。
 
-Things you may want to cover:
+- $ docker pull redis
+- $ docker run -p 6379:6379 redis
 
-* Ruby version
+Sidekiqを起動します。
 
-* System dependencies
+- $ bundle exec sidekiq
 
-* Configuration
+# ジョブ実行
 
-* Database creation
+- AsyncLogJob.perform_later(message: "from another queue")
+- AsyncLogJob.set(queue: :another_queue).perform_later(message: "from another queue")
 
-* Database initialization
+確認
 
-* How to run the test suite
+- AsyncLog.last
 
-* Services (job queues, cache servers, search engines, etc.)
+# Sidekiq
 
-* Deployment instructions
-
-* ...
+- dashboard
+  - http://localhost:3000/sidekiq/
+- 設定ファイル
+  - config/sidekiq.yml
