@@ -6,4 +6,8 @@ class AsyncLogJobTest < ActiveJob::TestCase
       AsyncLogJob.perform_later
     end
   end
+  test "Check DB insertion" do
+    AsyncLogJob.perform_now(message: "abc")
+    assert_equal "abc", AsyncLog.last.message
+  end
 end
