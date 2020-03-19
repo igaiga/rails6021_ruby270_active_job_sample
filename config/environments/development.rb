@@ -32,9 +32,11 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
+  config.action_mailer.delivery_method = :file
   config.action_mailer.raise_delivery_errors = false
-
   config.action_mailer.perform_caching = false
+  # ActionMailer code
+  # UserMailer.with(to: "a1@example.com", name: "igaiga").welcome.deliver_now
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
