@@ -10,6 +10,7 @@ module Rails6021Ruby270ActiveJobSample
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    config.eager_load_paths << "app/workers"
 
     config.active_job.queue_adapter = :sidekiq
     # zconfig.active_job.queue_adapter = :async # default

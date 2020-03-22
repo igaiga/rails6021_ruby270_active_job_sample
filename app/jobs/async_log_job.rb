@@ -22,8 +22,9 @@ class AsyncLogJob < ApplicationJob
   # end
 
   def perform(message: "hello") # 引数を定義できる
-#    sleep 5
-#    raise "in job" # RuntimeError
+    # sleep 5
+    # raise "in job" # RuntimeError
     AsyncLog.create!(message: message) # この行を追加する
+    # AsyncLog.create!(message: message.name) # AR
   end
 end
